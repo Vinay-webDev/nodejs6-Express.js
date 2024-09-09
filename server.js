@@ -5,6 +5,11 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3500;
 
+// express methods
+app.get('/', (req, res) => {
+    console.log("Hello Bro!");
+    res.send("Hello Bro!");
+})
 
 
 
@@ -14,9 +19,7 @@ const PORT = process.env.PORT || 3500;
 
 
 
-
-
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
 })
 
