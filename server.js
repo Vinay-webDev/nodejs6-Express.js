@@ -6,11 +6,19 @@ const path = require('path');
 const PORT = process.env.PORT || 3500;
 
 // express methods
+/*
 app.get('/', (req, res) => {
-    console.log("Hello Bro!");
-    res.send("Hello Bro!");
+    res.send("Hey bro my name is jack!😭😂😂");
 })
-
+*/
+// also we can sendFiles
+app.get('/', (req, res) => {
+    // there are two methods to sendFile
+    //1. `./` also you need to specify root
+    //res.sendFile('./views/index.html', {root: __dirname});
+    //2. path.join( )
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+})
 
 
 
