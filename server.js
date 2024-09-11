@@ -1,11 +1,9 @@
-/*
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3500;
-*/
 // express methods
 /*
 app.get('/', (req, res) => {
@@ -59,7 +57,7 @@ app.get('/*', (req, res) => {
 // the 404✅ but the statusCode is 200 which means succesful \
 // express adds status by default✅
 // but here in this default 404 case we need to set it 404✅
-/*
+
 app.get('^/$|index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html')); //status 200 by default✅
 })
@@ -75,45 +73,5 @@ app.get('/*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
 })
-*/
-/////////////////////////////////////////////////////////////////////////////////////////////////
-//again
-const express = require('express');
-const app = express();
-const fs = require('fs');
-const path = require('path');
 
 
-const PORT = process.env.PORT || 5555;
-
-app.get('^/$|index(.html)?', (req, res) => {
-        console.log(req.url, req.method);
-        res.sendFile(path.join(__dirname, 'views', 'index.html'));
-})
-/*
-app.get('.css', (req, res) => {
-    res.sendFile(path.join(__dirname, 'css', 'style.css'));
-})
-*/
-app.get('/new-page(.html)?', (req, res) => {
-    console.log(req.url, req.method);
-    res.sendFile(path.join(__dirname, 'views', 'new-page.html'));
-})
-
-app.get('/old-page(.html)?', (req, res) => {
-    console.log(req.url, req.method);
-    res.redirect('new-page.html');
-})
-
-app.get('/*', (req, res) => {
-    console.log(req.url, req.method);
-    res.sendFile(path.join(__dirname, 'views', '404.html'));
-})
-///lemme try to serve css file
-app.get('/css/style.css', (req, res) => {
-    res.sendFile(path.join(__dirname, 'css', 'style.css'));
-})
-
-app.listen(PORT, () => {
-    console.log(`server is running on ${PORT}`);
-})
