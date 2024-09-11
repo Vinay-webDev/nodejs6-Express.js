@@ -84,6 +84,11 @@ const fs = require('fs');
 const path = require('path');
 
 
+const PORT = process.env.PORT || 5555;
+
+app.get('/', (req, res) => {
+        res.send("hello bro!");
+})
 
 
 
@@ -91,5 +96,6 @@ const path = require('path');
 
 
 
-
-
+app.listen(PORT, () => {
+    console.log(`server is running on ${PORT}`);
+})
