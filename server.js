@@ -87,9 +87,12 @@ const path = require('path');
 const PORT = process.env.PORT || 5555;
 
 app.get('/', (req, res) => {
-        res.send("hello bro!");
+        res.sendFile(path.join(__dirname, 'views', 'index.html'));
 })
 
+app.get('.css', (req, res) => {
+    res.sendFile(path.join(__dirname, 'css', 'style.css'));
+})
 
 
 
