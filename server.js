@@ -1,9 +1,11 @@
+/*
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3500;
+*/
 // express methods
 /*
 app.get('/', (req, res) => {
@@ -57,6 +59,7 @@ app.get('/*', (req, res) => {
 // the 404✅ but the statusCode is 200 which means succesful \
 // express adds status by default✅
 // but here in this default 404 case we need to set it 404✅
+/*
 app.get('^/$|index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html')); //status 200 by default✅
 })
@@ -72,9 +75,13 @@ app.get('/*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
 })
-
-
-
+*/
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//again
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const path = require('path');
 
 
 
