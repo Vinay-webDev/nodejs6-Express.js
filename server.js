@@ -85,6 +85,7 @@ app.get('/new-page(.html)?', (req, res) => {
 app.get('/old-page(.html)?', (req, res) => {
     res.redirect(301, '/new-page.html'); // 302 by default // we need to set it to 301 inorder to make browser understand
 })
+///////////
 // Route handlers
 // so the function that we have in app.get() is a route handlers
 // also we can chain these route handlers****
@@ -96,7 +97,7 @@ app.get('/hello(.html)?', (req, res, next) => {
 }, (req, res) => {
     res.send('hello bro!');
 })
-
+/////////
 // the another way of chaining these functions (handlers)***
 const one = (req, res, next) => {
     console.log('one');
@@ -111,9 +112,13 @@ const three = (req, res, next) => {
     res.send('finished!');
 }
 // now we can have these handlers in our route 
+// have a route and have an array (instead of callback function) and have ( which will call) those functions in that array! 
 app.get('/chain(.html)?', [one, two, three]);
+/* so this works simlar to the middlerware which we cover later on 
+also we can serve those static type files like css, stylesheets, javascript, json, images ....etc  
+*/
 
-
+/////////////
 app.get('/*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html')); // this will by default send 200 // we need to set it to 404 in order to make browser understand // to do that we need to chain status() method and have 404 in it****
 })
