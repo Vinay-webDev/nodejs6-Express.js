@@ -97,8 +97,21 @@ app.get('/hello(.html)?', (req, res, next) => {
     res.send('hello bro!');
 })
 
-
-
+// the another way of chaining these functions (handlers)***
+const one = (req, res, next) => {
+    console.log('one');
+    next();
+}
+const two = (req, res, next) => {
+    console.log('two');
+    next();
+}
+const three = (req, res, next) => {
+    console.log('three');
+    res.send('finished!');
+}
+// now we can have these handlers in our route 
+app.get('/chain(.html)?', [one, two, three]);
 
 
 app.get('/*', (req, res) => {
